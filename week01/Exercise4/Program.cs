@@ -8,8 +8,6 @@ class Program
         int input;
         List<int> numbers = new List<int>();
 
-
-
         int sum = 0;
         double avg;
         int max = 0;
@@ -36,8 +34,6 @@ class Program
             {
                 max = number;
             }
-
-
         }
 
         avg = (float)sum / numbers.Count;
