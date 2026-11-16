@@ -17,8 +17,8 @@ class Program
             Console.Clear();
 
             Console.WriteLine(scripture.GetDisplayText());
+            Console.WriteLine("\nPress Enter to continue or type 'quit' to finish (type 'hint' to show a word):");
 
-            Console.WriteLine("Press Enter to continue or type 'quit' to finish (type 'hint' to show a word):");
             input = Console.ReadLine();
 
             // STRETCH CHALLENGE
@@ -26,10 +26,20 @@ class Program
             {
                 scripture.ShowRandomWord();
             }
+            else if (input != "quit")
+            {
+                scripture.HideRandomWords(3);
+                allDone = scripture.IsCompletelyHidden();
+
+                if (allDone)
+                {
+                    Console.Clear();
+                    Console.WriteLine(scripture.GetDisplayText());
+                }
+            }
             else
             {
-                allDone = scripture.IsCompletelyHidden();
-                scripture.HideRandomWords(3);
+                Console.Clear();
             }
         }
         while (input != "quit" && allDone == false);
